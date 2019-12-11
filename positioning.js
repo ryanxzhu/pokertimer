@@ -6,11 +6,31 @@ const blueCircle = document.getElementsByClassName('blueCircle');
 const icon = document.getElementsByClassName('icon');
 const chips = document.getElementsByClassName('chips');
 const chipValue = document.getElementsByClassName('chipValue');
-
-positionElements();
+const noSelect = document.getElementsByClassName('noSelect');
 
 document.body.style.margin = 0;
 document.body.style.backgroundColor = 'black';
+document.body.style.fontFamily = 'Roboto, sans-serif';
+
+startIcon.style.position = 'absolute';
+timerCircle.style.cursor = 'pointer';
+refreshIcon.style.cursor = 'pointer';
+
+blinds.style.color = '#4d4d4d';
+blinds.style.fontWeight = 'bold';
+blinds.style.position = 'absolute';
+blinds.style.textAlign = 'center';
+
+nextLevelHeading.style.color = '#4d4d4d';
+nextLevelHeading.style.fontWeight = 'bold';
+nextLevelHeading.style.position = 'absolute';
+nextLevelHeading.style.textAlign = 'center';
+
+nextLevelBlinds.style.color = '#bababa';
+nextLevelBlinds.style.position = 'absolute';
+nextLevelBlinds.style.textAlign = 'center';
+
+positionElements();
 
 for (let i = 0; i < blueCircle.length; i++) {
 	blueCircle[i].style.borderRadius = '50%';
@@ -20,7 +40,6 @@ for (let i = 0; i < blueCircle.length; i++) {
 	blueCircle[i].style.alignItems = 'center';
 	blueCircle[i].style.justifyContent = 'center';
 	blueCircle[i].style.textAlign = 'center';
-	blueCircle[i].style.fontFamily = 'Roboto, sans-serif';
 	blueCircle[i].style.position = 'absolute';
 	blueCircle[i].style.zIndex = '2';
 }
@@ -33,10 +52,7 @@ for (let i = 0; i < chips.length; i++) {
 	chips[i].style.position = 'absolute';
 	chipValue[i].style.position = 'absolute';
 	chipValue[i].style.color = '#bababa';
-	chipValue[i].style.fontFamily = 'Roboto, sans-serif';
 }
-
-startIcon.style.position = 'absolute';
 
 function positionElements() {
 	timerCircle.style.width = window.innerWidth * 0.3 + 'px';
@@ -51,6 +67,24 @@ function positionElements() {
 	blindsCircle.style.top =
 		parseInt(timerCircle.style.top, 10) + (timerCircle.clientHeight - blindsCircle.clientHeight) / 2 + 'px';
 	blindsCircle.style.left = (parseInt(timerCircle.style.left, 10) - blindsCircle.clientWidth) / 2 + 'px';
+
+	blinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.6 + 'px';
+	blinds.style.width = blindsCircle.clientWidth * 0.5 + 'px';
+	blinds.style.left =
+		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - blinds.clientWidth / 2 + 'px';
+	blinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight / 4 + 'px';
+
+	nextLevelHeading.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.4 + 'px';
+	nextLevelHeading.style.width = blindsCircle.clientWidth * 0.7 + 'px';
+	nextLevelHeading.style.left =
+		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelHeading.clientWidth / 2 + 'px';
+	nextLevelHeading.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.1 + 'px';
+
+	nextLevelBlinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.8 + 'px';
+	nextLevelBlinds.style.width = blindsCircle.clientWidth * 0.7 + 'px';
+	nextLevelBlinds.style.left =
+		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelBlinds.clientWidth / 2 + 'px';
+	nextLevelBlinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.2 + 'px';
 
 	for (let i = 0; i < icon.length; i++) {
 		icon[i].style.width = timerCircle.clientWidth * 0.2 + 'px';
