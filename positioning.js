@@ -121,6 +121,7 @@ function positionElements() {
 	chipValue[0].textContent = parseInt(timerCircle.style.top, 10);
 	chipValue[1].textContent = timerCircle.clientHeight;
 	chipValue[2].textContent = startIcon.clientHeight;
+	chipValue[3].textContent = startIcon.clientWidth;
 	startIcon.style.top =
 		parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight / 2 - startIcon.clientHeight / 2 + 'px';
 }
