@@ -13,6 +13,7 @@ document.body.style.backgroundColor = 'black';
 document.body.style.fontFamily = 'Roboto, sans-serif';
 
 startIcon.style.position = 'absolute';
+startIcon.style.visibility = 'visible';
 timerCircle.style.cursor = 'pointer';
 refreshIcon.style.cursor = 'pointer';
 
@@ -50,6 +51,7 @@ for (let i = 0; i < icon.length; i++) {
 
 for (let i = 0; i < chips.length; i++) {
 	chips[i].style.position = 'absolute';
+	chips[i].style.visibility = 'visible';
 	chipValue[i].style.position = 'absolute';
 	chipValue[i].style.color = '#bababa';
 }
@@ -63,7 +65,7 @@ function positionElements() {
 
 	blindsCircle.style.width = parseInt(timerCircle.style.width, 10) * 0.8 + 'px';
 	blindsCircle.style.height = parseInt(timerCircle.style.height, 10) * 0.8 + 'px';
-	blindsCircle.style.fontSize = blindsCircle.clientWidth / 5 + 'px';
+	blindsCircle.style.fontSize = blindsCircle.clientWidth / 6 + 'px';
 	blindsCircle.style.top =
 		parseInt(timerCircle.style.top, 10) + (timerCircle.clientHeight - blindsCircle.clientHeight) / 2 + 'px';
 	blindsCircle.style.left = (parseInt(timerCircle.style.left, 10) - blindsCircle.clientWidth) / 2 + 'px';
@@ -81,7 +83,7 @@ function positionElements() {
 	nextLevelHeading.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.1 + 'px';
 
 	nextLevelBlinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.8 + 'px';
-	nextLevelBlinds.style.width = blindsCircle.clientWidth * 0.7 + 'px';
+	nextLevelBlinds.style.width = blindsCircle.clientWidth * 1.2 + 'px';
 	nextLevelBlinds.style.left =
 		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelBlinds.clientWidth / 2 + 'px';
 	nextLevelBlinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.2 + 'px';
@@ -96,12 +98,12 @@ function positionElements() {
 		chips[i].style.top =
 			parseInt(timerCircle.style.top, 10) +
 			timerCircle.clientHeight / 4 * i +
-			(timerCircle.clientHeight / 4 - chips[0].clientHeight) / 2 +
+			(timerCircle.clientHeight / 4 - chips[i].clientHeight) / 2 +
 			'px';
-		chipValue[i].style.fontSize = chips[0].clientHeight * 0.6 + 'px';
-		chipValue[i].style.left = parseInt(chips[0].style.left, 10) + chips[0].clientWidth * 1.3 + 'px';
+		chipValue[i].style.fontSize = chips[i].clientHeight * 0.6 + 'px';
+		chipValue[i].style.left = window.innerWidth * 0.84 + 'px';
 		chipValue[i].style.top =
-			parseInt(chips[i].style.top, 10) + (chips[0].clientHeight - chipValue[0].clientHeight) / 2 + 'px';
+			parseInt(chips[i].style.top, 10) + (chips[i].clientHeight - chipValue[i].clientHeight) / 2 + 'px';
 	}
 
 	startIcon.style.width = timerCircle.clientWidth * 0.4 + 'px';
