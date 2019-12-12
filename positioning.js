@@ -106,7 +106,7 @@ function positionElements() {
 			parseInt(chips[i].style.top, 10) + (chips[i].clientHeight - chipValue[i].clientHeight) / 2 + 'px';
 	}
 
-	startIcon.style.width = timerCircle.clientWidth * 0.4 + 'px';
+	startIcon.style.height = timerCircle.clientHeight * 0.4 + 'px';
 	pauseIcon.style.left =
 		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - pauseIcon.clientWidth / 2 + 'px';
 	playIcon.style.left =
