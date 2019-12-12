@@ -56,7 +56,7 @@ for (let i = 0; i < chips.length; i++) {
 	chipValue[i].style.color = '#bababa';
 }
 
-function positionElements() {
+function positionElementsHorizontally() {
 	timerCircle.style.width = window.innerWidth * 0.3 + 'px';
 	timerCircle.style.height = window.innerWidth * 0.3 + 'px';
 	timerCircle.style.left = (window.innerWidth - timerCircle.clientWidth) / 2 + 'px';
@@ -120,6 +120,81 @@ function positionElements() {
 		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - startIcon.clientHeight / 2 + 'px';
 	startIcon.style.top =
 		parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight / 2 - startIcon.clientHeight / 2 + 'px';
+}
+
+function positionElementsVertically() {
+	timerCircle.style.width = window.innerHeight * 0.33 + 'px'; // changed for vertical
+	timerCircle.style.height = window.innerHeight * 0.33 + 'px'; // changed for vertical
+	timerCircle.style.left = (window.innerWidth - timerCircle.clientWidth) / 2 + 'px';
+	timerCircle.style.top = (window.innerHeight - timerCircle.clientHeight) / 1.6 + 'px'; // changed for vertical
+	timerCircle.style.fontSize = timerCircle.clientWidth / 4 + 'px';
+
+	blindsCircle.style.width = parseInt(timerCircle.style.width, 10) * 0.8 + 'px';
+	blindsCircle.style.height = parseInt(timerCircle.style.height, 10) * 0.8 + 'px';
+	blindsCircle.style.fontSize = blindsCircle.clientWidth / 6 + 'px';
+	blindsCircle.style.top = (parseInt(timerCircle.style.top, 10) - blindsCircle.clientHeight) / 4 + 'px'; // changed for vertical
+	blindsCircle.style.left =
+		parseInt(timerCircle.style.left, 10) + (timerCircle.clientWidth - blindsCircle.clientWidth) / 2 + 'px'; // changed for vertical
+
+	blinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.6 + 'px';
+	blinds.style.width = blindsCircle.clientWidth * 0.5 + 'px';
+	blinds.style.left =
+		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - blinds.clientWidth / 2 + 'px';
+	blinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight / 4 + 'px';
+
+	nextLevelHeading.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.4 + 'px';
+	nextLevelHeading.style.width = blindsCircle.clientWidth * 0.7 + 'px';
+	nextLevelHeading.style.left =
+		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelHeading.clientWidth / 2 + 'px';
+	nextLevelHeading.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.1 + 'px';
+
+	nextLevelBlinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.8 + 'px';
+	nextLevelBlinds.style.width = blindsCircle.clientWidth * 1.2 + 'px';
+	nextLevelBlinds.style.left =
+		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelBlinds.clientWidth / 2 + 'px';
+	nextLevelBlinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.2 + 'px';
+
+	for (let i = 0; i < icon.length; i++) {
+		icon[i].style.width = timerCircle.clientWidth * 0.2 + 'px';
+	}
+
+	for (let i = 0; i < chips.length; i++) {
+		chips[i].style.height = timerCircle.clientHeight * 0.2 + 'px';
+		chips[i].style.left =
+			parseInt(timerCircle.style.left, 10) +
+			timerCircle.clientWidth / 4 * i +
+			(timerCircle.clientWidth / 4 - chips[i].clientHeight) / 2 +
+			'px'; // changed for vertical
+		chips[i].style.top = window.innerHeight * 0.86 + 'px'; // changed for vertical
+		chipValue[i].style.fontSize = chips[i].clientHeight * 0.4 + 'px';
+		chipValue[i].style.width = timerCircle.clientWidth / 4 + 'px'; // changed for vertical
+		chipValue[i].style.textAlign = 'center'; // changed for vertical
+		chipValue[i].style.left = parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 4 * i + 'px'; // changed for vertical
+		chipValue[i].style.top = window.innerHeight * 0.94 + 'px'; // changed for vertical
+	}
+
+	startIcon.style.height = timerCircle.clientHeight * 0.4 + 'px';
+	pauseIcon.style.left =
+		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - pauseIcon.clientWidth / 2 + 'px';
+	playIcon.style.left =
+		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - playIcon.clientWidth / 2 + 'px';
+	pauseIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientWidth / 9 + 'px';
+	playIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientWidth / 9 + 'px';
+	refreshIcon.style.left =
+		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - refreshIcon.clientWidth / 2 + 'px';
+	refreshIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight * 1.05 + 'px';
+	startIcon.style.left =
+		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - startIcon.clientHeight / 2 + 'px';
+	startIcon.style.top =
+		parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight / 2 - startIcon.clientHeight / 2 + 'px';
+}
+
+function positionElements() {
+	if (window.innerHeight > window.innerWidth) {
+		positionElementsVertically();
+		return;
+	}
+	positionElementsHorizontally();
 }
 
 window.addEventListener('resize', positionElements);
