@@ -28,6 +28,28 @@
     <div class="blueCircle" id="blindsCircle">100 / 200</div>
     <script src="positioning.js"></script>
     <script src="interactivity.js"></script>
-    <script src="NoSleep.js"></script>
+    <script src="NoSleep.min.js"></script>
+    <script>
+        var noSleep = new NoSleep();
+        var wakeLockEnabled = false;
+        var timerCircleNoSleep = document.getElementById('timerCircle');
+        timerCircleNoSleep.addEventListener('mousedown', function() {
+            if (!wakeLockEnabled) {
+                noSleep.enable(); // keep the screen on!
+                wakeLockEnabled = true;
+            } else {
+                noSleep.disable(); // let the screen turn off.
+                wakeLockEnabled = false;
+            }
+        });
+
+        var refreshIconSleep = document.getElementById('refreshIcon');
+        refreshIconSleep.addEventListener('mousedown', function() {
+            if (wakeLockEnabled) {
+                noSleep.disable(); // let the screen turn off.
+                wakeLockEnabled = false;
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 const bigblindsArray = [ 200, 400, 600, 1000, 1500, 2000, 3000, 4000, 6000, 10000, 15000, 20000 ];
 const jazzSolo1 = new Audio();
-const noSleep = new NoSleep();
 jazzSolo1.src = 'jazz_solo_1.mp3';
 
 let hasStarted = false;
@@ -100,7 +99,6 @@ timerCircle.addEventListener('mousedown', function() {
 		startIcon.style.visibility = 'hidden';
 		hasStarted = true;
 		startTime = Date.now();
-		noSleep.enable();
 		playTimer();
 		return;
 	}
@@ -115,7 +113,6 @@ timerCircle.addEventListener('mousedown', function() {
 });
 
 refreshIcon.addEventListener('mousedown', function() {
-	noSleep.disable();
 	resetTimer();
 	return;
 });
