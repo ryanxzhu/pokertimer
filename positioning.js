@@ -117,7 +117,7 @@ function positionElements() {
 		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - refreshIcon.clientWidth / 2 + 'px';
 	refreshIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight * 1.1 + 'px';
 	startIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - startIcon.clientWidth / 2 + 'px';
+		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - startIcon.clientHeight / 2 + 'px';
 	chipValue[0].textContent = parseInt(timerCircle.style.top, 10);
 	chipValue[1].textContent = timerCircle.clientHeight;
 	chipValue[2].textContent = startIcon.clientHeight;
