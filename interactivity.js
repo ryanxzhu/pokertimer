@@ -17,6 +17,9 @@ function playTimer() {
 	startTime = Date.now();
 	timerId = setInterval(function() {
 		timerCircle.textContent = calcCurrentTime();
+		if (timerCircle.style.width !== window.innerWidth * 0.3 + 'px') {
+			positionElements();
+		}
 	}, 10);
 }
 
