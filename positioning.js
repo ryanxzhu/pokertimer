@@ -59,134 +59,189 @@ for (let i = 0; i < chips.length; i++) {
 function positionElementsHorizontally() {
 	timerCircle.style.width = window.innerWidth * 0.3 + 'px';
 	timerCircle.style.height = window.innerWidth * 0.3 + 'px';
-	timerCircle.style.left = (window.innerWidth - timerCircle.clientWidth) / 2 + 'px';
-	timerCircle.style.top = (window.innerHeight - timerCircle.clientHeight) / 2 * 0.6 + 'px';
-	timerCircle.style.fontSize = timerCircle.clientWidth / 4 + 'px';
+	timerCircle.style.left = (window.innerWidth - parseFloat(timerCircle.style.width)) / 2 + 'px';
+	timerCircle.style.top = (window.innerHeight - parseFloat(timerCircle.style.height)) / 2 * 0.6 + 'px';
+	timerCircle.style.fontSize = parseFloat(timerCircle.style.width) / 4 + 'px';
 
-	blindsCircle.style.width = parseInt(timerCircle.style.width, 10) * 0.8 + 'px';
-	blindsCircle.style.height = parseInt(timerCircle.style.height, 10) * 0.8 + 'px';
-	blindsCircle.style.fontSize = blindsCircle.clientWidth / 6 + 'px';
+	blindsCircle.style.width = parseFloat(timerCircle.style.width) * 0.8 + 'px';
+	blindsCircle.style.height = parseFloat(timerCircle.style.height) * 0.8 + 'px';
+	blindsCircle.style.fontSize = parseFloat(blindsCircle.style.width) / 6 + 'px';
 	blindsCircle.style.top =
-		parseInt(timerCircle.style.top, 10) + (timerCircle.clientHeight - blindsCircle.clientHeight) / 2 + 'px';
-	blindsCircle.style.left = (parseInt(timerCircle.style.left, 10) - blindsCircle.clientWidth) / 2 + 'px';
+		parseFloat(timerCircle.style.top) +
+		(parseFloat(timerCircle.style.height) - parseFloat(blindsCircle.style.height)) / 2 +
+		'px';
+	blindsCircle.style.left = (parseFloat(timerCircle.style.left) - parseFloat(blindsCircle.style.width)) / 2 + 'px';
 
-	blinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.6 + 'px';
-	blinds.style.width = blindsCircle.clientWidth * 0.5 + 'px';
+	blinds.style.fontSize = parseFloat(blindsCircle.style.fontSize) * 0.6 + 'px';
+	blinds.style.width = parseFloat(blindsCircle.style.width) * 0.5 + 'px';
 	blinds.style.left =
-		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - blinds.clientWidth / 2 + 'px';
-	blinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight / 4 + 'px';
+		parseFloat(blindsCircle.style.left) +
+		parseFloat(blindsCircle.style.width) / 2 -
+		parseFloat(blinds.style.width) / 2 +
+		'px';
+	blinds.style.top = parseFloat(blindsCircle.style.top) + parseFloat(blindsCircle.style.height) / 4 + 'px';
 
-	nextLevelHeading.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.4 + 'px';
-	nextLevelHeading.style.width = blindsCircle.clientWidth * 0.7 + 'px';
+	nextLevelHeading.style.fontSize = parseFloat(blindsCircle.style.fontSize) * 0.4 + 'px';
+	nextLevelHeading.style.width = parseFloat(blindsCircle.style.width) * 0.7 + 'px';
 	nextLevelHeading.style.left =
-		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelHeading.clientWidth / 2 + 'px';
-	nextLevelHeading.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.1 + 'px';
+		parseFloat(blindsCircle.style.left) +
+		parseFloat(blindsCircle.style.width) / 2 -
+		parseFloat(nextLevelHeading.style.width) / 2 +
+		'px';
+	nextLevelHeading.style.top =
+		parseFloat(blindsCircle.style.top) + parseFloat(blindsCircle.style.height) * 1.1 + 'px';
 
-	nextLevelBlinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.8 + 'px';
-	nextLevelBlinds.style.width = blindsCircle.clientWidth * 1.2 + 'px';
+	nextLevelBlinds.style.fontSize = parseFloat(blindsCircle.style.fontSize) * 0.8 + 'px';
+	nextLevelBlinds.style.width = parseFloat(blindsCircle.style.width) * 1.2 + 'px';
 	nextLevelBlinds.style.left =
-		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelBlinds.clientWidth / 2 + 'px';
-	nextLevelBlinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.2 + 'px';
+		parseFloat(blindsCircle.style.left) +
+		parseFloat(blindsCircle.style.width) / 2 -
+		parseFloat(nextLevelBlinds.style.width) / 2 +
+		'px';
+	nextLevelBlinds.style.top = parseFloat(blindsCircle.style.top) + parseFloat(blindsCircle.style.width) * 1.2 + 'px';
 
 	for (let i = 0; i < icon.length; i++) {
-		icon[i].style.width = timerCircle.clientWidth * 0.2 + 'px';
+		icon[i].style.width = parseFloat(timerCircle.style.width) * 0.2 + 'px';
 	}
 
 	for (let i = 0; i < chips.length; i++) {
-		chips[i].style.height = timerCircle.clientHeight * 0.22 + 'px';
+		chips[i].style.height = parseFloat(timerCircle.style.width) * 0.22 + 'px';
 		chips[i].style.left = window.innerWidth * 0.75 + 'px';
 		chips[i].style.top =
-			parseInt(timerCircle.style.top, 10) +
-			timerCircle.clientHeight / 4 * i +
-			(timerCircle.clientHeight / 4 - chips[i].clientHeight) / 2 +
+			parseFloat(timerCircle.style.top) +
+			parseFloat(timerCircle.style.height) / 4 * i +
+			(parseFloat(timerCircle.style.height) / 4 - parseFloat(chips[i].style.height)) / 2 +
 			'px';
-		chipValue[i].style.fontSize = chips[i].clientHeight * 0.6 + 'px';
+		chipValue[i].style.fontSize = parseFloat(chips[i].style.height) * 0.6 + 'px';
 		chipValue[i].style.left = window.innerWidth * 0.84 + 'px';
 		chipValue[i].style.top =
-			parseInt(chips[i].style.top, 10) + (chips[i].clientHeight - chipValue[i].clientHeight) / 2 + 'px';
+			parseFloat(chips[i].style.top) + (parseFloat(chips[i].style.height) - chipValue[i].clientHeight) / 2 + 'px';
 	}
 
-	startIcon.style.height = timerCircle.clientHeight * 0.4 + 'px';
+	startIcon.style.height = parseFloat(timerCircle.style.height) * 0.4 + 'px';
 	pauseIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - pauseIcon.clientWidth / 2 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.height) / 2 -
+		parseFloat(pauseIcon.style.width) / 2 +
+		'px';
 	playIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - playIcon.clientWidth / 2 + 'px';
-	pauseIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientWidth / 9 + 'px';
-	playIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientWidth / 9 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.width) / 2 -
+		parseFloat(playIcon.style.width) / 2 +
+		'px';
+	pauseIcon.style.top = parseFloat(timerCircle.style.top) + parseFloat(timerCircle.style.width) / 9 + 'px';
+	playIcon.style.top = parseFloat(timerCircle.style.top) + parseFloat(timerCircle.style.width) / 9 + 'px';
 	refreshIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - refreshIcon.clientWidth / 2 + 'px';
-	refreshIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight * 1.1 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.width) / 2 -
+		parseFloat(refreshIcon.style.width) / 2 +
+		'px';
+	refreshIcon.style.top = parseFloat(timerCircle.style.top) + parseFloat(timerCircle.style.height) * 1.1 + 'px';
 	startIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - startIcon.clientHeight / 2 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.width) / 2 -
+		parseFloat(startIcon.style.height) / 2 +
+		'px';
 	startIcon.style.top =
-		parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight / 2 - startIcon.clientHeight / 2 + 'px';
+		parseFloat(timerCircle.style.top) +
+		parseFloat(timerCircle.style.height) / 2 -
+		parseFloat(startIcon.style.height) / 2 +
+		'px';
 }
 
 function positionElementsVertically() {
 	timerCircle.style.width = window.innerHeight * 0.33 + 'px'; // changed for vertical
 	timerCircle.style.height = window.innerHeight * 0.33 + 'px'; // changed for vertical
-	timerCircle.style.left = (window.innerWidth - timerCircle.clientWidth) / 2 + 'px';
-	timerCircle.style.top = (window.innerHeight - timerCircle.clientHeight) / 1.6 + 'px'; // changed for vertical
-	timerCircle.style.fontSize = timerCircle.clientWidth / 4 + 'px';
+	timerCircle.style.left = (window.innerWidth - parseFloat(timerCircle.style.width)) / 2 + 'px';
+	timerCircle.style.top = (window.innerHeight - parseFloat(timerCircle.style.height)) / 1.6 + 'px'; // changed for vertical
+	timerCircle.style.fontSize = parseFloat(timerCircle.style.width) / 4 + 'px';
 
-	blindsCircle.style.width = parseInt(timerCircle.style.width, 10) * 0.8 + 'px';
-	blindsCircle.style.height = parseInt(timerCircle.style.height, 10) * 0.8 + 'px';
-	blindsCircle.style.fontSize = blindsCircle.clientWidth / 6 + 'px';
-	blindsCircle.style.top = (parseInt(timerCircle.style.top, 10) - blindsCircle.clientHeight) / 4 + 'px'; // changed for vertical
+	blindsCircle.style.width = parseFloat(timerCircle.style.width) * 0.8 + 'px';
+	blindsCircle.style.height = parseFloat(timerCircle.style.height) * 0.8 + 'px';
+	blindsCircle.style.fontSize = parseFloat(blindsCircle.style.width) / 6 + 'px';
+	blindsCircle.style.top = (parseFloat(timerCircle.style.top) - parseFloat(blindsCircle.style.height)) / 4 + 'px'; // changed for vertical
 	blindsCircle.style.left =
-		parseInt(timerCircle.style.left, 10) + (timerCircle.clientWidth - blindsCircle.clientWidth) / 2 + 'px'; // changed for vertical
+		parseFloat(timerCircle.style.left) +
+		(parseFloat(timerCircle.style.width) - parseFloat(blindsCircle.style.width)) / 2 +
+		'px'; // changed for vertical
 
-	blinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.6 + 'px';
-	blinds.style.width = blindsCircle.clientWidth * 0.5 + 'px';
+	blinds.style.fontSize = parseFloat(blindsCircle.style.fontSize) * 0.6 + 'px';
+	blinds.style.width = parseFloat(blindsCircle.style.width) * 0.5 + 'px';
 	blinds.style.left =
-		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - blinds.clientWidth / 2 + 'px';
-	blinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight / 4 + 'px';
+		parseFloat(blindsCircle.style.left) +
+		parseFloat(blindsCircle.style.width) / 2 -
+		parseFloat(blinds.style.width) / 2 +
+		'px';
+	blinds.style.top = parseFloat(blindsCircle.style.top) + parseFloat(blindsCircle.style.height) / 4 + 'px';
 
-	nextLevelHeading.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.4 + 'px';
-	nextLevelHeading.style.width = blindsCircle.clientWidth * 0.7 + 'px';
+	nextLevelHeading.style.fontSize = parseFloat(blindsCircle.style.fontSize) * 0.4 + 'px';
+	nextLevelHeading.style.width = parseFloat(blindsCircle.style.width) * 0.7 + 'px';
 	nextLevelHeading.style.left =
-		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelHeading.clientWidth / 2 + 'px';
-	nextLevelHeading.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.1 + 'px';
+		parseFloat(blindsCircle.style.left) +
+		parseFloat(blindsCircle.style.width) / 2 -
+		parseFloat(nextLevelHeading.style.width) / 2 +
+		'px';
+	nextLevelHeading.style.top =
+		parseFloat(blindsCircle.style.top) + parseFloat(blindsCircle.style.height) * 1.1 + 'px';
 
-	nextLevelBlinds.style.fontSize = parseInt(blindsCircle.style.fontSize, 10) * 0.8 + 'px';
-	nextLevelBlinds.style.width = blindsCircle.clientWidth * 1.2 + 'px';
+	nextLevelBlinds.style.fontSize = parseFloat(blindsCircle.style.fontSize) * 0.8 + 'px';
+	nextLevelBlinds.style.width = parseFloat(blindsCircle.style.width) * 1.2 + 'px';
 	nextLevelBlinds.style.left =
-		parseInt(blindsCircle.style.left, 10) + blindsCircle.clientWidth / 2 - nextLevelBlinds.clientWidth / 2 + 'px';
-	nextLevelBlinds.style.top = parseInt(blindsCircle.style.top, 10) + blindsCircle.clientHeight * 1.2 + 'px';
+		parseFloat(blindsCircle.style.left) +
+		parseFloat(blindsCircle.style.width) / 2 -
+		parseFloat(nextLevelBlinds.style.width) / 2 +
+		'px';
+	nextLevelBlinds.style.top = parseFloat(blindsCircle.style.top) + parseFloat(blindsCircle.style.height) * 1.2 + 'px';
 
 	for (let i = 0; i < icon.length; i++) {
-		icon[i].style.width = timerCircle.clientWidth * 0.2 + 'px';
+		icon[i].style.width = parseFloat(timerCircle.style.width) * 0.2 + 'px';
 	}
 
 	for (let i = 0; i < chips.length; i++) {
-		chips[i].style.height = timerCircle.clientHeight * 0.2 + 'px';
+		chips[i].style.height = parseFloat(timerCircle.style.height) * 0.2 + 'px';
 		chips[i].style.left =
-			parseInt(timerCircle.style.left, 10) +
-			timerCircle.clientWidth / 4 * i +
-			(timerCircle.clientWidth / 4 - chips[i].clientHeight) / 2 +
+			parseFloat(timerCircle.style.left) +
+			parseFloat(timerCircle.style.width) / 4 * i +
+			(parseFloat(timerCircle.style.width) / 4 - parseFloat(chips[i].style.height)) / 2 +
 			'px'; // changed for vertical
 		chips[i].style.top = window.innerHeight * 0.86 + 'px'; // changed for vertical
-		chipValue[i].style.fontSize = chips[i].clientHeight * 0.4 + 'px';
-		chipValue[i].style.width = timerCircle.clientWidth / 4 + 'px'; // changed for vertical
+		chipValue[i].style.fontSize = parseFloat(chips[i].style.height) * 0.4 + 'px';
+		chipValue[i].style.width = parseFloat(timerCircle.style.width) / 4 + 'px'; // changed for vertical
 		chipValue[i].style.textAlign = 'center'; // changed for vertical
-		chipValue[i].style.left = parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 4 * i + 'px'; // changed for vertical
+		chipValue[i].style.left =
+			parseFloat(timerCircle.style.left) + parseFloat(timerCircle.style.width) / 4 * i + 'px'; // changed for vertical
 		chipValue[i].style.top = window.innerHeight * 0.94 + 'px'; // changed for vertical
 	}
 
-	startIcon.style.height = timerCircle.clientHeight * 0.4 + 'px';
+	startIcon.style.height = parseFloat(timerCircle.style.height) * 0.4 + 'px';
 	pauseIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - pauseIcon.clientWidth / 2 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.width) / 2 -
+		parseFloat(pauseIcon.style.width) / 2 +
+		'px';
 	playIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - playIcon.clientWidth / 2 + 'px';
-	pauseIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientWidth / 9 + 'px';
-	playIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientWidth / 9 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.width) / 2 -
+		parseFloat(playIcon.style.width) / 2 +
+		'px';
+	pauseIcon.style.top = parseFloat(timerCircle.style.top) + parseFloat(timerCircle.style.width) / 9 + 'px';
+	playIcon.style.top = parseFloat(timerCircle.style.top) + parseFloat(timerCircle.style.width) / 9 + 'px';
 	refreshIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - refreshIcon.clientWidth / 2 + 'px';
-	refreshIcon.style.top = parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight * 1.05 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.width) / 2 -
+		parseFloat(refreshIcon.style.width) / 2 +
+		'px';
+	refreshIcon.style.top = parseFloat(timerCircle.style.top) + parseFloat(timerCircle.style.height) * 1.05 + 'px';
 	startIcon.style.left =
-		parseInt(timerCircle.style.left, 10) + timerCircle.clientWidth / 2 - startIcon.clientHeight / 2 + 'px';
+		parseFloat(timerCircle.style.left) +
+		parseFloat(timerCircle.style.width) / 2 -
+		parseFloat(startIcon.style.height) / 2 +
+		'px';
 	startIcon.style.top =
-		parseInt(timerCircle.style.top, 10) + timerCircle.clientHeight / 2 - startIcon.clientHeight / 2 + 'px';
+		parseFloat(timerCircle.style.top) +
+		parseFloat(timerCircle.style.height) / 2 -
+		parseFloat(startIcon.style.height) / 2 +
+		'px';
 }
 
 function positionElements() {
@@ -199,3 +254,6 @@ function positionElements() {
 
 window.addEventListener('resize', positionElements);
 window.addEventListener('orientationchange', positionElements);
+var regularlyPosElementsId = setInterval(function() {
+	positionElements();
+}, 100);
