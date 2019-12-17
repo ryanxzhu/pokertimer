@@ -353,6 +353,6 @@ function positionElements() {
 
 window.addEventListener('resize', positionElements);
 window.addEventListener('orientationchange', positionElements);
-// var regularlyPosElementsId = setInterval(function() {
-// 	positionElements();
-// }, 100);
+var regularlyPosElementsId = setInterval(function() {
+	positionElements();
+}, 100);
