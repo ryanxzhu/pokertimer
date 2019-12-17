@@ -119,3 +119,17 @@ refreshIcon.addEventListener('mousedown', function() {
 	resetTimer();
 	return;
 });
+
+chipStack.addEventListener('mousedown', function() {
+	blackBackground.style.visibility = 'visible';
+	startingChips.style.visibility = 'visible';
+	blackBackground.style.cursor = 'pointer';
+	return;
+});
+
+blackBackground.addEventListener('mousedown', function() {
+	blackBackground.style.visibility = 'hidden';
+	startingChips.style.visibility = 'hidden';
+	blackBackground.style.cursor = 'auto';
+	return;
+});

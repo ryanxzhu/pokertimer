@@ -35,3 +35,23 @@ body {
 #chipStack {
 	visibility: hidden;
 }
+
+#blackBackground {
+	visibility: hidden;
+	position: absolute;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	opacity: 80%;
+	z-index: 2;
+}
+
+#startingChips {
+	border: 0;
+	visibility: hidden;
+	position: absolute;
+	background-color: rgb(20, 20, 20);
+	color: #4d4d4d;
+	text-align: center;
+	z-index: 3;
+}
