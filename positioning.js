@@ -1,3 +1,4 @@
+// version 1.02
 const refreshIcon = document.getElementById('refreshIcon');
 const pauseIcon = document.getElementById('pauseIcon');
 const playIcon = document.getElementById('playIcon');
@@ -289,6 +290,7 @@ function positionElementsVertically() {
 			(parseFloat(startingChips.style.height) - parseFloat(startingChips.style.height) * 4 * 0.17) / 2 +
 			'px';
 		startingAmount[0].textContent = window.innerWidth;
+		startingAmount[1].textContent = startingChips.style.width;
 		startingChips.style.fontSize = parseFloat(startingChips.style.height) * 0.1 + 'px';
 	}
 
