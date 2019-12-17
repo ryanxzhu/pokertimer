@@ -322,7 +322,7 @@ function positionElementsVertically() {
 		parseFloat(startIcon.style.height) / 2 +
 		'px';
 	chipStack.style.width = window.innerWidth * 0.2 + 'px';
-	chipStack.style.right = 0;
+	chipStack.style.left = window.innerWidth * 0.78 + 'px';
 	chipStack.style.top = '1%';
 	chipStack.style.cursor = 'pointer';
 
