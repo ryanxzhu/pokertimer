@@ -288,7 +288,7 @@ function positionElementsVertically() {
 			parseFloat(startingChips.style.height) * i * 0.17 +
 			(parseFloat(startingChips.style.height) - parseFloat(startingChips.style.height) * 4 * 0.17) / 2 +
 			'px';
-
+		startingAmount[0].textContent = window.innerWidth;
 		startingChips.style.fontSize = parseFloat(startingChips.style.height) * 0.1 + 'px';
 	}
 
