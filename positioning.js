@@ -153,7 +153,7 @@ function positionElementsHorizontally() {
 		chipValue[i].style.top =
 			parseFloat(chips[i].style.top) + (parseFloat(chips[i].style.height) - chipValue[i].clientHeight) / 2 + 'px';
 
-		chipsToGive[i].style.left = '35%';
+		chipsToGive[i].style.left = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		chipsToGive[i].style.height = parseFloat(startingChips.style.height) * 0.13 + 'px';
 		chipsToGive[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
@@ -161,7 +161,7 @@ function positionElementsHorizontally() {
 			'px';
 
 		startingAmount[i].style.fontSize = parseFloat(startingChips.style.height) * 0.12 + 'px';
-		startingAmount[i].style.right = '35%';
+		startingAmount[i].style.right = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		startingAmount[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
 			(parseFloat(startingChips.style.height) - parseFloat(startingChips.style.height) * 4 * 0.17) / 2 +
@@ -209,8 +209,11 @@ function positionElementsHorizontally() {
 	startingChips.style.top = 0;
 	startingChips.style.left = (window.innerWidth - parseFloat(startingChips.style.height)) / 2 + 'px';
 
-	totalStartingStack.style.bottom = '5%';
+	totalStartingStack.style.top = parseFloat(startingChips.style.height) * 0.85 + 'px';
 	totalStartingStack.style.width = parseFloat(startingChips.style.width) + 'px';
+
+	blackBackground.style.width = window.innerWidth + 'px';
+	blackBackground.style.height = window.innerHeight + 'px';
 }
 
 function positionElementsVertically() {
@@ -276,7 +279,7 @@ function positionElementsVertically() {
 			parseFloat(timerCircle.style.left) + parseFloat(timerCircle.style.width) / 4 * i + 'px'; // changed for vertical
 		chipValue[i].style.top = window.innerHeight * 0.94 + 'px'; // changed for vertical
 
-		chipsToGive[i].style.left = '35%';
+		chipsToGive[i].style.left = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		chipsToGive[i].style.height = parseFloat(startingChips.style.height) * 0.13 + 'px';
 		chipsToGive[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
@@ -284,7 +287,7 @@ function positionElementsVertically() {
 			'px';
 
 		startingAmount[i].style.fontSize = parseFloat(startingChips.style.height) * 0.12 + 'px';
-		startingAmount[i].style.right = '35%';
+		startingAmount[i].style.right = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		startingAmount[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
 			(parseFloat(startingChips.style.height) - parseFloat(startingChips.style.height) * 4 * 0.17) / 2 +
@@ -325,7 +328,7 @@ function positionElementsVertically() {
 		'px';
 	chipStack.style.width = window.innerWidth * 0.2 + 'px';
 	chipStack.style.left = window.innerWidth * 0.78 + 'px';
-	chipStack.style.top = '1%';
+	chipStack.style.top = window.innerHeight * 0.01 + 'px';
 	chipStack.style.cursor = 'pointer';
 
 	startingChips.style.width = window.innerWidth * 0.99 + 'px';
@@ -333,8 +336,11 @@ function positionElementsVertically() {
 	startingChips.style.top = (window.innerHeight - parseFloat(startingChips.style.height)) / 2 + 'px';
 	startingChips.style.left = 0;
 
-	totalStartingStack.style.bottom = '5%';
+	totalStartingStack.style.top = parseFloat(startingChips.style.height) * 0.85 + 'px';
 	totalStartingStack.style.width = parseFloat(startingChips.style.width) + 'px';
+
+	blackBackground.style.width = window.innerWidth + 'px';
+	blackBackground.style.height = window.innerHeight + 'px';
 }
 
 function positionElements() {

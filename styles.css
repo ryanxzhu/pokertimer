@@ -37,11 +37,10 @@ body {
 }
 
 #blackBackground {
+	border: 0px;
 	visibility: hidden;
 	position: absolute;
 	background-color: black;
-	width: 100%;
-	height: 100%;
 	opacity: 80%;
 	z-index: 2;
 }
