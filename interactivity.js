@@ -121,15 +121,15 @@ refreshIcon.addEventListener('mousedown', function() {
 });
 
 chipStack.addEventListener('mousedown', function() {
-	blackBackground.style.visibility = 'visible';
-	startingChips.style.visibility = 'visible';
+	blackBackground.style.display = 'block';
+	startingChips.style.display = 'block';
 	blackBackground.style.cursor = 'pointer';
 	return;
 });
 
 blackBackground.addEventListener('mousedown', function() {
-	blackBackground.style.visibility = 'hidden';
-	startingChips.style.visibility = 'hidden';
+	blackBackground.style.display = 'none';
+	startingChips.style.display = 'none';
 	blackBackground.style.cursor = 'auto';
 	return;
 });

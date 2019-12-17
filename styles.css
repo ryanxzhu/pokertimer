@@ -38,7 +38,7 @@ body {
 
 #blackBackground {
 	border: 0px;
-	visibility: hidden;
+	display: none;
 	position: absolute;
 	background-color: black;
 	opacity: 80%;
@@ -47,7 +47,7 @@ body {
 
 #startingChips {
 	border: 0;
-	visibility: hidden;
+	display: none;
 	position: absolute;
 	background-color: rgb(20, 20, 20);
 	color: #4d4d4d;
