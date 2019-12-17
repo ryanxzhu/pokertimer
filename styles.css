@@ -31,3 +31,7 @@ body {
 #startIcon {
 	visibility: hidden;
 }
+
+#chipStack {
+	visibility: hidden;
+}

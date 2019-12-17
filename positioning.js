@@ -31,6 +31,10 @@ nextLevelBlinds.style.color = '#bababa';
 nextLevelBlinds.style.position = 'absolute';
 nextLevelBlinds.style.textAlign = 'center';
 
+chipStack.style.visibility = 'visible';
+chipStack.style.position = 'absolute';
+chipStack.style.zIndex = '2';
+
 positionElements();
 
 for (let i = 0; i < blueCircle.length; i++) {
@@ -147,6 +151,10 @@ function positionElementsHorizontally() {
 		parseFloat(timerCircle.style.height) / 2 -
 		parseFloat(startIcon.style.height) / 2 +
 		'px';
+	chipStack.style.width = window.innerHeight * 0.2 + 'px';
+	chipStack.style.right = window.innerWidth * 0.02 + 'px';
+	chipStack.style.top = parseFloat(refreshIcon.style.top) * 0.96 + 'px';
+	chipStack.style.cursor = 'pointer';
 }
 
 function positionElementsVertically() {
@@ -242,6 +250,10 @@ function positionElementsVertically() {
 		parseFloat(timerCircle.style.height) / 2 -
 		parseFloat(startIcon.style.height) / 2 +
 		'px';
+	chipStack.style.width = window.innerWidth * 0.2 + 'px';
+	chipStack.style.right = 0;
+	chipStack.style.top = '1%';
+	chipStack.style.cursor = 'pointer';
 }
 
 function positionElements() {
