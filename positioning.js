@@ -1,4 +1,4 @@
-// version 1.02
+// version 1.03
 const refreshIcon = document.getElementById('refreshIcon');
 const pauseIcon = document.getElementById('pauseIcon');
 const playIcon = document.getElementById('playIcon');
@@ -200,7 +200,7 @@ function positionElementsHorizontally() {
 		parseFloat(startIcon.style.height) / 2 +
 		'px';
 	chipStack.style.width = window.innerHeight * 0.2 + 'px';
-	chipStack.style.right = window.innerWidth * 0.02 + 'px';
+	chipStack.style.left = window.innerWidth * 0.89 + 'px';
 	chipStack.style.top = parseFloat(refreshIcon.style.top) * 0.96 + 'px';
 	chipStack.style.cursor = 'pointer';
 
@@ -292,8 +292,8 @@ function positionElementsVertically() {
 			parseFloat(startingChips.style.height) * i * 0.17 +
 			(parseFloat(startingChips.style.height) - parseFloat(startingChips.style.height) * 4 * 0.17) / 2 +
 			'px';
-		startingAmount[0].textContent = window.innerWidth;
-		startingAmount[1].textContent = startingChips.style.width;
+		// startingAmount[0].textContent = window.innerWidth;
+		// startingAmount[1].textContent = startingChips.style.width;
 		startingChips.style.fontSize = parseFloat(startingChips.style.height) * 0.1 + 'px';
 	}
 
