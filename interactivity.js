@@ -94,6 +94,8 @@ function calcCurrentTime() {
 }
 
 timerCircle.addEventListener('mousedown', function() {
+	chipStack.style.visibility = 'hidden';
+
 	if (hasStarted === false) {
 		refreshIcon.style.visibility = 'visible';
 		startIcon.style.visibility = 'hidden';
@@ -113,6 +115,7 @@ timerCircle.addEventListener('mousedown', function() {
 });
 
 refreshIcon.addEventListener('mousedown', function() {
+	chipStack.style.visibility = 'visible';
 	resetTimer();
 	return;
 });
