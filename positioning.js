@@ -153,7 +153,7 @@ function positionElementsHorizontally() {
 		chipValue[i].style.top =
 			parseFloat(chips[i].style.top) + (parseFloat(chips[i].style.height) - chipValue[i].clientHeight) / 2 + 'px';
 
-		chipsToGive[i].style.left = parseFloat(startingChips.style.width) * 0.35 + 'px';
+		chipsToGive[i].style.right = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		chipsToGive[i].style.height = parseFloat(startingChips.style.height) * 0.13 + 'px';
 		chipsToGive[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
@@ -161,7 +161,7 @@ function positionElementsHorizontally() {
 			'px';
 
 		startingAmount[i].style.fontSize = parseFloat(startingChips.style.height) * 0.12 + 'px';
-		startingAmount[i].style.right = parseFloat(startingChips.style.width) * 0.35 + 'px';
+		startingAmount[i].style.left = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		startingAmount[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
 			(parseFloat(startingChips.style.height) - parseFloat(startingChips.style.height) * 4 * 0.17) / 2 +
@@ -279,7 +279,7 @@ function positionElementsVertically() {
 			parseFloat(timerCircle.style.left) + parseFloat(timerCircle.style.width) / 4 * i + 'px'; // changed for vertical
 		chipValue[i].style.top = window.innerHeight * 0.94 + 'px'; // changed for vertical
 
-		chipsToGive[i].style.left = parseFloat(startingChips.style.width) * 0.35 + 'px';
+		chipsToGive[i].style.right = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		chipsToGive[i].style.height = parseFloat(startingChips.style.height) * 0.13 + 'px';
 		chipsToGive[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
@@ -287,7 +287,7 @@ function positionElementsVertically() {
 			'px';
 
 		startingAmount[i].style.fontSize = parseFloat(startingChips.style.height) * 0.12 + 'px';
-		startingAmount[i].style.right = parseFloat(startingChips.style.width) * 0.35 + 'px';
+		startingAmount[i].style.left = parseFloat(startingChips.style.width) * 0.35 + 'px';
 		startingAmount[i].style.top =
 			parseFloat(startingChips.style.height) * i * 0.17 +
 			(parseFloat(startingChips.style.height) - parseFloat(startingChips.style.height) * 4 * 0.17) / 2 +
@@ -353,6 +353,6 @@ function positionElements() {
 
 window.addEventListener('resize', positionElements);
 window.addEventListener('orientationchange', positionElements);
-var regularlyPosElementsId = setInterval(function() {
-	positionElements();
-}, 100);
+// var regularlyPosElementsId = setInterval(function() {
+// 	positionElements();
+// }, 100);
