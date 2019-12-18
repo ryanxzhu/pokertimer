@@ -1,6 +1,6 @@
 const bigblindsArray = [ 200, 400, 600, 1000, 1500, 2000, 3000, 4000, 6000, 10000, 15000, 20000 ];
 const jazzSolo1 = new Audio();
-jazzSolo1.src = 'jazz_solo_1.mp3';
+jazzSolo1.src = 'blinds-up-please.mp3';
 
 let hasStarted = false;
 let timerIsActive = false;
