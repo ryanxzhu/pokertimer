@@ -40,6 +40,7 @@ function resetTimer() {
 	level = 0;
 	blindsCircle.textContent = bigblindsArray[0] / 2 + ' / ' + bigblindsArray[0];
 	nextLevelBlinds.textContent = bigblindsArray[1] / 2 + ' / ' + bigblindsArray[1];
+	chipStack.style.visibility = 'visible';
 	startIcon.style.visibility = 'visible';
 	pauseIcon.style.visibility = 'hidden';
 	refreshIcon.style.visibility = 'hidden';
@@ -115,8 +116,11 @@ timerCircle.addEventListener('mousedown', function() {
 });
 
 refreshIcon.addEventListener('mousedown', function() {
-	chipStack.style.visibility = 'visible';
-	resetTimer();
+	blackBackground.style.display = 'block';
+	greySquare[1].style.display = 'block';
+	blackBackground.style.cursor = 'pointer';
+	confirmYes.style.cursor = 'pointer';
+	confirmNo.style.cursor = 'pointer';
 	return;
 });
 
@@ -128,8 +132,22 @@ chipStack.addEventListener('mousedown', function() {
 });
 
 blackBackground.addEventListener('mousedown', function() {
+	greySquare[1].style.display = 'none';
 	blackBackground.style.display = 'none';
 	startingChips.style.display = 'none';
 	blackBackground.style.cursor = 'auto';
+	return;
+});
+
+confirmYes.addEventListener('mousedown', function() {
+	greySquare[1].style.display = 'none';
+	blackBackground.style.display = 'none';
+	resetTimer();
+	return;
+});
+
+confirmNo.addEventListener('mousedown', function() {
+	greySquare[1].style.display = 'none';
+	blackBackground.style.display = 'none';
 	return;
 });

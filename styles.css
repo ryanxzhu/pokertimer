@@ -45,7 +45,7 @@ body {
 	z-index: 2;
 }
 
-#startingChips {
+.greySquare {
 	border: 0;
 	display: none;
 	position: absolute;
