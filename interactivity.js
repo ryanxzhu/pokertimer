@@ -1,6 +1,6 @@
 const bigblindsArray = [ 200, 400, 600, 1000, 1500, 2000, 3000, 4000, 6000, 10000, 15000, 20000 ];
-const jazzSolo1 = new Audio();
-jazzSolo1.src = 'blinds-up-please.mp3';
+const blindsUpPlease = new Audio();
+blindsUpPlease.src = 'blinds-up-please.mp3';
 
 let hasStarted = false;
 let timerIsActive = false;
@@ -70,7 +70,7 @@ function calcCurrentTime() {
 	let tempLevel = level;
 	level = Math.floor((elapsedTime + currentTime) / 900000);
 	if (tempLevel !== level) {
-		jazzSolo1.play();
+		blindsUpPlease.play();
 	}
 	blindsUp();
 
@@ -151,3 +151,29 @@ confirmNo.addEventListener('mousedown', function() {
 	blackBackground.style.display = 'none';
 	return;
 });
+
+function GetClock() {
+	var d = new Date();
+	var nhour = d.getHours(),
+		nmin = d.getMinutes(),
+		ap;
+	if (nhour == 0) {
+		ap = ' AM';
+		nhour = 12;
+	} else if (nhour < 12) {
+		ap = ' AM';
+	} else if (nhour == 12) {
+		ap = ' PM';
+	} else if (nhour > 12) {
+		ap = ' PM';
+		nhour -= 12;
+	}
+
+	if (nmin <= 9) nmin = '0' + nmin;
+
+	var clocktext = '' + nhour + ':' + nmin + ap + '';
+	document.getElementById('clock').innerHTML = clocktext;
+}
+
+GetClock();
+setInterval(GetClock, 1000);

@@ -1,4 +1,4 @@
-// version 1.04sF
+// version 1.04
 const refreshIcon = document.getElementById('refreshIcon');
 const pauseIcon = document.getElementById('pauseIcon');
 const playIcon = document.getElementById('playIcon');
@@ -9,27 +9,34 @@ const chips = document.getElementsByClassName('chips');
 const chipValue = document.getElementsByClassName('chipValue');
 const noSelect = document.getElementsByClassName('noSelect');
 const greySquare = document.getElementsByClassName('greySquare');
+const clock = document.getElementById('clock');
 const whiteChip = new Image();
 const redChip = new Image();
 const blueChip = new Image();
 const blackChip = new Image();
-const whiteChipSlanted = new Image();
-const redChipSlanted = new Image();
-const blueChipSlanted = new Image();
-const blackChipSlanted = new Image();
-let windowWidth = window.innerWidth;
+const blindsChipsImg = [];
+const imgSrc = [
+	'https://i.ibb.co/nmHh0rF/white-chip-slanted-small.png',
+	'https://i.ibb.co/9Hq1GNb/red-chip-slanted-small.png',
+	'https://i.ibb.co/wLhzstS/blue-chip-slanted-small.png',
+	'https://i.ibb.co/Krp1kF0/black-chip-slanted-small.png'
+];
 
-whiteChip.src = 'https://i.ibb.co/p17PTf3/whiteChip.png';
-redChip.src = 'https://i.ibb.co/WD95zGw/redChip.png';
-blueChip.src = 'https://i.ibb.co/h24GFxh/blueChip.png';
-blackChip.src = 'https://i.ibb.co/j63Svpp/blackChip.png';
-whiteChipSlanted.src = 'https://i.ibb.co/nmHh0rF/white-chip-slanted-small.png';
-redChipSlanted.src = 'https://i.ibb.co/9Hq1GNb/red-chip-slanted-small.png';
-blueChipSlanted.src = 'https://i.ibb.co/wLhzstS/blue-chip-slanted-small.png';
-blackChipSlanted.src = 'https://i.ibb.co/Krp1kF0/black-chip-slanted-small.png';
+for (let i = 0; i < 4; i++) {
+	let imgArray = [];
+	for (let j = 0; j < 3; j++) {
+		imgArray.push(new Image());
+		imgArray[j].src = imgSrc[i];
+		imgArray[j].style.position = 'absolute';
+		imgArray[j].style.width = parseFloat(blindsCircle.style.width) * 0.15 + 'px';
+		imgArray[j].style.display = 'none';
+		document.body.appendChild(imgArray[j]);
+	}
+	blindsChipsImg.push(imgArray);
+}
 
 const chipsToGive = [ whiteChip, redChip, blueChip, blackChip ];
-const chipsInBlinds = [ whiteChipSlanted, redChipSlanted, blueChipSlanted, blackChipSlanted ];
+const blindsChipsPos = [ [ 0.2, 0.75 ], [ 0.17, 0.66 ], [ 0.09, 0.58 ], [ 0.6, 0.75 ], [ 0.63, 0.66 ], [ 0.72, 0.58 ] ];
 let startingAmount = [];
 let totalStartingStack = document.createElement('div');
 document.getElementById('startingChips').appendChild(totalStartingStack);
@@ -114,7 +121,14 @@ confirmNo.style.position = 'absolute';
 
 confirmRestart.style.color = 'white';
 
+clock.style.position = 'absolute';
+clock.style.color = '#bababa';
+
 positionElements();
+
+/****************************************************************************************************/
+/******************************** POSITION ELEMENTS HORIZONTALLY ************************************/
+/****************************************************************************************************/
 
 function positionElementsHorizontally() {
 	timerCircle.style.width = window.innerWidth * 0.3 + 'px';
@@ -258,7 +272,15 @@ function positionElementsHorizontally() {
 	confirmNo.style.borderRadius = '500px';
 
 	confirmRestart.style.fontSize = parseFloat(confirmRestart.style.width) * 0.1 + 'px';
+
+	clock.style.left = window.innerWidth * 0.02 + 'px';
+	clock.style.top = window.innerHeight * 0.03 + 'px';
+	clock.style.fontSize = window.innerHeight * 0.07 + 'px';
 }
+
+/**************************************************************************************************/
+/******************************** POSITION ELEMENTS VERTICALLY ************************************/
+/**************************************************************************************************/
 
 function positionElementsVertically() {
 	timerCircle.style.width = window.innerHeight * 0.33 + 'px'; // changed for vertical
@@ -402,9 +424,73 @@ function positionElementsVertically() {
 	confirmNo.style.borderRadius = '500px';
 
 	confirmRestart.style.fontSize = parseFloat(confirmRestart.style.width) * 0.1 + 'px';
+
+	clock.style.left = window.innerWidth * 0.03 + 'px';
+	clock.style.top = window.innerHeight * 0.01 + 'px';
+	clock.style.fontSize = window.innerWidth * 0.07 + 'px';
+}
+
+/*****************************BLINDS POSITIONS********************************/
+
+function updateBlindsImg() {
+	switch (blindsCircle.textContent) {
+		case '100 / 200':
+			drawBlinds(blindsChipsImg[0][0], 1);
+			drawBlinds(blindsChipsImg[0][1], 3);
+			drawBlinds(blindsChipsImg[0][2], 4);
+			return;
+
+		case '200 / 400':
+			drawBlinds(blindsChipsImg[1][0], 1);
+			drawBlinds(blindsChipsImg[1][1], 3);
+			drawBlinds(blindsChipsImg[1][2], 4);
+			return;
+
+		case '300 / 600':
+			drawBlinds(blindsChipsImg[0][0], 0);
+			drawBlinds(blindsChipsImg[1][0], 1);
+			drawBlinds(blindsChipsImg[0][1], 3);
+			drawBlinds(blindsChipsImg[2][0], 4);
+			return;
+		case '500 / 1000':
+			drawBlinds(blindsChipsImg[2][0], 1);
+			drawBlinds(blindsChipsImg[3][0], 4);
+			return;
+		case '800 / 1500':
+			drawBlinds(blindsChipsImg[0][0], 0);
+			drawBlinds(blindsChipsImg[1][0], 1);
+			drawBlinds(blindsChipsImg[2][0], 2);
+			drawBlinds(blindsChipsImg[2][1], 3);
+			drawBlinds(blindsChipsImg[3][0], 4);
+			return;
+		case '1000 / 2000':
+			drawBlinds(blindsChipsImg[3][0], 1);
+			drawBlinds(blindsChipsImg[3][1], 3);
+			drawBlinds(blindsChipsImg[3][2], 4);
+			return;
+		case '1500 / 3000':
+			drawBlinds(blindsChipsImg[2][0], 0);
+			drawBlinds(blindsChipsImg[2][1], 1);
+			drawBlinds(blindsChipsImg[2][2], 2);
+			drawBlinds(blindsChipsImg[3][0], 3);
+			drawBlinds(blindsChipsImg[3][1], 4);
+			drawBlinds(blindsChipsImg[3][2], 5);
+			return;
+	}
+}
+
+function drawBlinds(chip, pos) {
+	chip.style.width = parseFloat(blindsCircle.style.width) * 0.2 + 'px';
+	chip.style.left =
+		parseFloat(blindsCircle.style.left) + parseFloat(blindsCircle.style.width) * blindsChipsPos[pos][0] + 'px';
+	chip.style.top =
+		parseFloat(blindsCircle.style.top) + parseFloat(blindsCircle.style.height) * blindsChipsPos[pos][1] + 'px';
+
+	chip.style.display = 'block';
 }
 
 function positionElements() {
+	updateBlindsImg();
 	if (window.innerHeight > window.innerWidth) {
 		positionElementsVertically();
 		return;
