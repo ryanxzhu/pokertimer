@@ -225,7 +225,7 @@ function positionElementsHorizontally() {
 		parseFloat(startIcon.style.height) / 2 +
 		'px';
 	chipStack.style.width = window.innerHeight * 0.2 + 'px';
-	chipStack.style.left = window.innerWidth * 0.89 + 'px';
+	chipStack.style.left = window.innerWidth * 0.88 + 'px';
 	chipStack.style.top = parseFloat(refreshIcon.style.top) * 0.96 + 'px';
 	chipStack.style.cursor = 'pointer';
 
