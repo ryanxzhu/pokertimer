@@ -26,10 +26,11 @@ for (let i = 0; i < 4; i++) {
 	let imgArray = [];
 	for (let j = 0; j < 3; j++) {
 		imgArray.push(new Image());
-		imgArray[j].src = imgSrc[i];
 		imgArray[j].style.position = 'absolute';
-		imgArray[j].style.width = parseFloat(blindsCircle.style.width) * 0.15 + 'px';
 		imgArray[j].style.display = 'none';
+		imgArray[j].src = imgSrc[i];
+		imgArray[j].style.width = '0px';
+
 		document.body.appendChild(imgArray[j]);
 	}
 	blindsChipsImg.push(imgArray);
