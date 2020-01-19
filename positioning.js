@@ -1,4 +1,4 @@
-// version 1.03
+// version 1.04sF
 const refreshIcon = document.getElementById('refreshIcon');
 const pauseIcon = document.getElementById('pauseIcon');
 const playIcon = document.getElementById('playIcon');
@@ -13,11 +13,23 @@ const whiteChip = new Image();
 const redChip = new Image();
 const blueChip = new Image();
 const blackChip = new Image();
+const whiteChipSlanted = new Image();
+const redChipSlanted = new Image();
+const blueChipSlanted = new Image();
+const blackChipSlanted = new Image();
+let windowWidth = window.innerWidth;
+
 whiteChip.src = 'https://i.ibb.co/p17PTf3/whiteChip.png';
 redChip.src = 'https://i.ibb.co/WD95zGw/redChip.png';
 blueChip.src = 'https://i.ibb.co/h24GFxh/blueChip.png';
 blackChip.src = 'https://i.ibb.co/j63Svpp/blackChip.png';
+whiteChipSlanted.src = 'https://i.ibb.co/nmHh0rF/white-chip-slanted-small.png';
+redChipSlanted.src = 'https://i.ibb.co/9Hq1GNb/red-chip-slanted-small.png';
+blueChipSlanted.src = 'https://i.ibb.co/wLhzstS/blue-chip-slanted-small.png';
+blackChipSlanted.src = 'https://i.ibb.co/Krp1kF0/black-chip-slanted-small.png';
+
 const chipsToGive = [ whiteChip, redChip, blueChip, blackChip ];
+const chipsInBlinds = [ whiteChipSlanted, redChipSlanted, blueChipSlanted, blackChipSlanted ];
 let startingAmount = [];
 let totalStartingStack = document.createElement('div');
 document.getElementById('startingChips').appendChild(totalStartingStack);
@@ -402,6 +414,4 @@ function positionElements() {
 
 window.addEventListener('resize', positionElements);
 window.addEventListener('orientationchange', positionElements);
-var regularlyPosElementsId = setInterval(function() {
-	positionElements();
-}, 100);
+var regularlyPosElementsId = setInterval(positionElements, 100);
