@@ -51,8 +51,8 @@ body {
 	border: 0;
 	display: none;
 	position: absolute;
-	background-color: rgb(20, 20, 20);
-	color: #4d4d4d;
+	background-color: rgb(7, 7, 7);
+	color: #4b4b4b;
 	text-align: center;
 	z-index: 3;
 }
