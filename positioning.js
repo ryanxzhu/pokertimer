@@ -9,11 +9,18 @@ const chips = document.getElementsByClassName('chips');
 const chipValue = document.getElementsByClassName('chipValue');
 const noSelect = document.getElementsByClassName('noSelect');
 const greySquare = document.getElementsByClassName('greySquare');
+const cancel = document.getElementById('cancel');
 const clock = document.getElementById('clock');
 const whiteChip = new Image();
 const redChip = new Image();
 const blueChip = new Image();
 const blackChip = new Image();
+
+whiteChip.src = 'https://i.ibb.co/p17PTf3/whiteChip.png';
+redChip.src = 'https://i.ibb.co/WD95zGw/redChip.png';
+blueChip.src = 'https://i.ibb.co/h24GFxh/blueChip.png';
+blackChip.src = 'https://i.ibb.co/j63Svpp/blackChip.png';
+
 const blindsChipsImg = [];
 const imgSrc = [
 	'https://i.ibb.co/nmHh0rF/white-chip-slanted-small.png',
@@ -277,6 +284,8 @@ function positionElementsHorizontally() {
 	clock.style.left = window.innerWidth * 0.02 + 'px';
 	clock.style.top = window.innerHeight * 0.03 + 'px';
 	clock.style.fontSize = window.innerHeight * 0.07 + 'px';
+
+	cancel.style.fontSize = window.innerWidth * 0.05 + 'px';
 }
 
 /**************************************************************************************************/
@@ -429,6 +438,8 @@ function positionElementsVertically() {
 	clock.style.left = window.innerWidth * 0.03 + 'px';
 	clock.style.top = window.innerHeight * 0.01 + 'px';
 	clock.style.fontSize = window.innerWidth * 0.07 + 'px';
+
+	cancel.style.fontSize = window.innerHeight * 0.05 + 'px';
 }
 
 /*****************************BLINDS POSITIONS********************************/

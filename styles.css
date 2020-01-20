@@ -42,6 +42,7 @@ body {
 	border: 0px;
 	display: none;
 	position: absolute;
+	background-color: black;
 	opacity: 80%;
 	z-index: 2;
 }
@@ -54,4 +55,16 @@ body {
 	color: #4d4d4d;
 	text-align: center;
 	z-index: 3;
+}
+
+#cancel {
+	position: absolute;
+	/* font-size: 300%; */
+	color: white;
+	margin: 2%;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	display: none;
+	cursor: pointer;
 }

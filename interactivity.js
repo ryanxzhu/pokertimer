@@ -121,6 +121,7 @@ refreshIcon.addEventListener('mousedown', function() {
 	blackBackground.style.cursor = 'pointer';
 	confirmYes.style.cursor = 'pointer';
 	confirmNo.style.cursor = 'pointer';
+	cancel.style.display = 'block';
 	return;
 });
 
@@ -128,11 +129,22 @@ chipStack.addEventListener('mousedown', function() {
 	blackBackground.style.display = 'block';
 	startingChips.style.display = 'block';
 	blackBackground.style.cursor = 'pointer';
+	cancel.style.display = 'block';
 	return;
 });
 
 blackBackground.addEventListener('mousedown', function() {
 	greySquare[1].style.display = 'none';
+	cancel.style.display = 'none';
+	blackBackground.style.display = 'none';
+	startingChips.style.display = 'none';
+	blackBackground.style.cursor = 'auto';
+	return;
+});
+
+cancel.addEventListener('mousedown', function() {
+	greySquare[1].style.display = 'none';
+	cancel.style.display = 'none';
 	blackBackground.style.display = 'none';
 	startingChips.style.display = 'none';
 	blackBackground.style.cursor = 'auto';
@@ -142,6 +154,7 @@ blackBackground.addEventListener('mousedown', function() {
 confirmYes.addEventListener('mousedown', function() {
 	greySquare[1].style.display = 'none';
 	blackBackground.style.display = 'none';
+	cancel.style.display = 'none';
 	resetTimer();
 	return;
 });
@@ -149,6 +162,7 @@ confirmYes.addEventListener('mousedown', function() {
 confirmNo.addEventListener('mousedown', function() {
 	greySquare[1].style.display = 'none';
 	blackBackground.style.display = 'none';
+	cancel.style.display = 'none';
 	return;
 });
 
