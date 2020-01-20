@@ -445,6 +445,11 @@ function positionElementsVertically() {
 /*****************************BLINDS POSITIONS********************************/
 
 function updateBlindsImg() {
+	for (let i = 0; i < blindsChipsImg.length; i++) {
+		for (let j = 0; j < blindsChipsImg[i].length; j++) {
+			blindsChipsImg[i][j].style.display = 'none';
+		}
+	}
 	switch (blindsCircle.textContent) {
 		case '100 / 200':
 			drawBlinds(blindsChipsImg[0][0], 1);
