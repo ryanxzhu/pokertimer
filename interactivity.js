@@ -94,7 +94,7 @@ function calcCurrentTime() {
 	return minutes + ':' + seconds;
 }
 
-timerCircle.addEventListener('mousedown', function() {
+function pauseOrPlay() {
 	chipStack.style.visibility = 'hidden';
 
 	if (hasStarted === false) {
@@ -113,6 +113,15 @@ timerCircle.addEventListener('mousedown', function() {
 
 	pauseTimer();
 	return;
+}
+
+timerCircle.addEventListener('mousedown', pauseOrPlay);
+
+window.addEventListener('keydown', function(e) {
+	if (e.keyCode !== 32) {
+		return;
+	}
+	pauseOrPlay();
 });
 
 refreshIcon.addEventListener('mousedown', function() {
