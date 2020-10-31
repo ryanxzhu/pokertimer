@@ -1,4 +1,5 @@
-const bigblindsArray = [ 200, 400, 600, 1000, 1500, 2000, 3000, 4000, 6000, 10000, 15000, 20000 ];
+const bigblindsArray = [ 10, 20, 40, 80, 100, 160, 200, 400, 600, 1000, 1500, 2000 ];
+const smallblindsArray = [ 10, 10, 20, 40, 60, 80, 100, 200, 300, 500, 750, 1000 ];
 const blindsUpPlease = new Audio();
 blindsUpPlease.src = 'blinds-up-please.mp3';
 
@@ -38,8 +39,8 @@ function resetTimer() {
 	currentTime = 0;
 	elapsedTime = 0;
 	level = 0;
-	blindsCircle.textContent = bigblindsArray[0] / 2 + ' / ' + bigblindsArray[0];
-	nextLevelBlinds.textContent = bigblindsArray[1] / 2 + ' / ' + bigblindsArray[1];
+	blindsCircle.textContent = smallblindsArray[0] + ' / ' + bigblindsArray[0];
+	nextLevelBlinds.textContent = smallblindsArray[1] + ' / ' + bigblindsArray[1];
 	chipStack.style.visibility = 'visible';
 	startIcon.style.visibility = 'visible';
 	pauseIcon.style.visibility = 'hidden';
@@ -48,18 +49,8 @@ function resetTimer() {
 }
 
 function blindsUp() {
-	if (bigblindsArray[level] === 1000) {
-		blindsCircle.textContent = bigblindsArray[level] / 2 + ' / ' + bigblindsArray[level];
-		nextLevelBlinds.textContent = '800 / ' + bigblindsArray[level + 1];
-		return;
-	}
-	if (bigblindsArray[level] === 1500) {
-		blindsCircle.textContent = '800 / ' + bigblindsArray[level];
-		nextLevelBlinds.textContent = bigblindsArray[level + 1] / 2 + ' / ' + bigblindsArray[level + 1];
-		return;
-	}
-	blindsCircle.textContent = bigblindsArray[level] / 2 + ' / ' + bigblindsArray[level];
-	nextLevelBlinds.textContent = bigblindsArray[level + 1] / 2 + ' / ' + bigblindsArray[level + 1];
+	blindsCircle.textContent = smallblindsArray[level] + ' / ' + bigblindsArray[level];
+	nextLevelBlinds.textContent = smallblindsArray[level + 1] + ' / ' + bigblindsArray[level + 1];
 }
 
 function calcCurrentTime() {
@@ -74,7 +65,7 @@ function calcCurrentTime() {
 	}
 	blindsUp();
 
-	if (bigblindsArray[level] === 20000) {
+	if (bigblindsArray[level] === 2000) {
 		resetTimer();
 		return;
 	}
